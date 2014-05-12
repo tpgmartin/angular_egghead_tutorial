@@ -9,11 +9,13 @@
   <div ng-app="myApp">
 
     <div ng-controller="AvengersCtrl">
-      <input type="text" ng-model="searchText"> <!-- limit search query to
+      <input type="text" ng-model="search.$"> <!-- limit search query to
       names only, search.name. In ng-repeat use filter:search aftter pipe -->
       <!-- Search by either name or character using ng-model="search.$" -->
       <table>
-        <tr ng-repeat="actor in avengers.cast | filter:searchText">
+        <tr ng-repeat="actor in avengers.cast | orderBy:'name'">
+          <!-- Combine filters by using multiple pipes -->
+          <!-- Order of filters can be important -->
           <td>{{actor.name}}</td>
           <td>{{actor.character}}</td>
         </tr>
