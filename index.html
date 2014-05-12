@@ -7,7 +7,19 @@
 <body>
 
   <div ng-app="myApp">
-    <div ng-controller="FirstCtrl">
+
+    <div ng-controller="AvengersCtrl">
+      <input type="text" ng-model="searchText"> <!-- limit search query to
+      names only, search.name. In ng-repeat use filter:search aftter pipe -->
+      <!-- Search by either name or character using ng-model="search.$" -->
+      <table>
+        <tr ng-repeat="actor in avengers.cast | filter:searchText">
+          <td>{{actor.name}}</td>
+          <td>{{actor.character}}</td>
+        </tr>
+      </table>
+    </div>
+<!--     <div ng-controller="FirstCtrl">
       <input type="text" ng-model="data.message">
       <h1>{{data.message}}</h1>
     </div>
@@ -15,7 +27,7 @@
     <div ng-controller="SecondCtrl">
       <input type="text" ng-model="data.message">
       <h1>{{data.message|reverse}}</h1>
-    </div>
+    </div> -->
   </div>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
