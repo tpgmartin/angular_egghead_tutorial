@@ -1,8 +1,17 @@
-var app = angular.module("superhero", []);
+var app = angular.module("behaviourApp", [])
 
-app.directive("superman", function() {
-    return {
-        restrict: "E",
-        template: "<div>Here I am to save the day</div>"
-    }
+app.directive("enter", function () {
+  return function (scope, element) {
+    element.bind("mouseenter", function () {
+      console.log("I'm inside of you!");
+    })
+  }
+})
+
+app.directive("leave", function () {
+  return function (scope, element) {
+    element.bind("mouseleave", function () {
+      console.log("I'm leaving you!");
+    })
+  }
 })
